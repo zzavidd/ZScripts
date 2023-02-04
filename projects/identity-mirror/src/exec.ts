@@ -5,8 +5,9 @@ const TOTAL_COLUMNS = PARTICIPANTS.length + 1;
 const TOTAL_ROWS = ADJECTIVES.length + 1;
 
 const TEXT_STYLE = SpreadsheetApp.newTextStyle()
+  .setBold(true)
   .setFontFamily('Nunito')
-  .setFontSize(12)
+  .setFontSize(10)
   .build();
 
 const HEADER_COLUMN_COLOR = '#e1effb';

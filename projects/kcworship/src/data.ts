@@ -1,12 +1,3 @@
-const UF_TERMS: Record<Term, number[]> = {
-  1: [0, 1],
-  2: [2, 3, 4],
-  3: [5, 6, 7],
-  4: [8, 9, 10, 11],
-};
-
-const NUMBER_OF_COLUMNS = 12;
-
 const LEAD_SINGERS = [
   'Ama',
   'Caroline',

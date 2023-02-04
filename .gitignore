@@ -1,3 +1,10 @@
+node_modules
 **/creds.json
 **/.clasp*.json
-node_modules
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
