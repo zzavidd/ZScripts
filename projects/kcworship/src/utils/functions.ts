@@ -6,7 +6,7 @@ function getSundaysInTerm() {
     (monthMap, monthIndex) => {
       const date = new Date(YEAR, monthIndex);
       const month = date.toLocaleDateString('default', { month: 'long' });
-      const addSunday = (dayNumber: number) => {
+      const addSunday = (dayNumber: number): void => {
         monthMap[month] = [...(monthMap[month] || []), dayNumber];
       };
 

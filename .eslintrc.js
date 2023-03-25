@@ -4,16 +4,21 @@
 module.exports = {
   extends: '@zzavidd/eslint-config/node-ts',
   parserOptions: {
+    sourceType: 'module',
     tsconfigRootDir: __dirname,
     project: ['**/tsconfig.json'],
   },
   settings: {
     'import/resolver': {
       typescript: {
-        project: [
-          'tsconfig.json',
-        ],
+        project: ['tsconfig.json'],
       },
     },
   },
+  // overrides: [
+  //   {
+  //     files: ['**/*.ts'],
+  //     rules: {},
+  //   },
+  // ],
 };

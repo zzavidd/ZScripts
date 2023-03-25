@@ -9,10 +9,9 @@ const SHEET_NAME = `T${TERM} ${YEAR} (${termMonths})`;
 const { SOLID, SOLID_MEDIUM } = SpreadsheetApp.BorderStyle;
 
 let TOTAL_NONEMPTY_ROWS = 2;
-const RANGES_TO_MERGE: GoogleAppsScript.Spreadsheet.Range[] = [];
-
 let range: GoogleAppsScript.Spreadsheet.Range;
 let sheet: GoogleAppsScript.Spreadsheet.Sheet;
+const RANGES_TO_MERGE: GoogleAppsScript.Spreadsheet.Range[] = [];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function main(): void {
