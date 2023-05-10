@@ -29,30 +29,35 @@ function addColumns(): void {
   range = sheet.getRange(1, 1, 2, 2).setValue('Date');
   RANGES_TO_MERGE.push(range);
 
-  range = sheet.getRange(1, 3, 1, 4).setValue('SINGERS');
+  range = sheet.getRange(1, 3, 1, 5).setValue('SINGERS');
   RANGES_TO_MERGE.push(range);
 
-  range = sheet.getRange(1, 7, 1, 6).setValue('INSTRUMENTALISTS');
+  range = sheet.getRange(1, 8, 1, 6).setValue('INSTRUMENTALISTS');
   RANGES_TO_MERGE.push(range);
 
   sheet.getRange(2, 3).setValue('Worship Leader');
   sheet.getRange(2, 4).setValue('BV1');
   sheet.getRange(2, 5).setValue('BV2');
   sheet.getRange(2, 6).setValue('BV3');
+  sheet.getRange(2, 7).setValue('BV4');
 
-  sheet.getRange(2, 7).setValue('Keyboard');
-  sheet.getRange(2, 8).setValue('Drums');
-  sheet.getRange(2, 9).setValue('Bass');
-  sheet.getRange(2, 10).setValue('Acoustic');
-  sheet.getRange(2, 11).setValue('Saxophone');
-  sheet.getRange(2, 12).setValue('Violin');
+  sheet.getRange(2, 8).setValue('Keyboard');
+  sheet.getRange(2, 9).setValue('Drums');
+  sheet.getRange(2, 10).setValue('Bass');
+  sheet.getRange(2, 11).setValue('Acoustic');
+  sheet.getRange(2, 12).setValue('Saxophone');
+  sheet.getRange(2, 13).setValue('Violin');
 }
 
 function populateSheet(): void {
   console.info(`Populating sheet...`);
+
+  const monthIndices = UF_TERMS.get(TERM);
+  if (!monthIndices) throw new Error('No month indices.');
+
   const colours = Object.values(COLOURS)
     .sort(() => 0.5 - Math.random())
-    .slice(0, UF_TERMS[TERM].length);
+    .slice(0, monthIndices.length);
 
   const { sundaysInTerm, numberOfSundays } = getSundaysInTerm();
   TOTAL_NONEMPTY_ROWS += numberOfSundays;
@@ -113,7 +118,7 @@ function formatSheet(): void {
     .setBorder(null, null, null, true, true, null, '#000000', SOLID_MEDIUM);
   // Right border for SINGERS columns.
   sheet
-    .getRange(1, 6, TOTAL_NONEMPTY_ROWS, 1)
+    .getRange(1, 7, TOTAL_NONEMPTY_ROWS, 1)
     .setBorder(null, null, null, true, null, null, '#000000', SOLID_MEDIUM);
   // Right border for whole grid.
   sheet
@@ -137,7 +142,7 @@ function formatSheet(): void {
 }
 
 /**
- * Creates the sheet, deleting it if a sheet witht he name already exists.
+ * Creates the sheet, deleting it if a sheet with the name already exists.
  * @returns The sheet.
  */
 function createSheet(): void {
@@ -172,11 +177,11 @@ function addDataValidation(): void {
   };
 
   set(3, LEAD_SINGERS);
-  set(4, BV_SINGERS, 3);
-  set(7, KEYBOARDISTS, 1);
-  set(8, DRUMMERS, 1);
-  set(9, BASSISTS, 1);
-  set(10, ACOUSTICS, 1);
-  set(11, SAXOPHONISTS, 1);
-  set(12, VIOLINISTS, 1);
+  set(4, BV_SINGERS, 4);
+  set(8, KEYBOARDISTS, 1);
+  set(9, DRUMMERS, 1);
+  set(10, BASSISTS, 1);
+  set(11, ACOUSTICS, 1);
+  set(12, SAXOPHONISTS, 1);
+  set(13, VIOLINISTS, 1);
 }

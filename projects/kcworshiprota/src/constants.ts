@@ -1,10 +1,10 @@
 /** A map of terms to the corresponding month indices. */
-const UF_TERMS: Record<Term, number[]> = {
-  1: [0, 1],
-  2: [2, 3, 4],
-  3: [5, 6, 7],
-  4: [8, 9, 10, 11],
-};
+const UF_TERMS = new Map<Term, number[]>([
+  [1, [0, 1]],
+  [2, [2, 3, 4]],
+  [3, [5, 6, 7]],
+  [4, [8, 9, 10, 11]],
+]);
 
 /** The text style for the header. */
 const COLUMN_HEADER_TEXT_STYLE = SpreadsheetApp.newTextStyle()
@@ -20,7 +20,7 @@ const TEXT_STYLE = SpreadsheetApp.newTextStyle()
   .build();
 
 /** The total number of expected non-empty columns. */
-const TOTAL_NONEMPTY_COLUMNS = 12;
+const TOTAL_NONEMPTY_COLUMNS = 13;
 
 /** A map of date suffixes. */
 const SUFFIXES = new Map([

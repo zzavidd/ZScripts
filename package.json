@@ -1,8 +1,4 @@
 {
-  "packageManager": "yarn@3.4.1",
-  "workspaces": [
-    "projects/*"
-  ],
   "prettier": "@zzavidd/prettier-config",
   "devDependencies": {
     "@types/google-apps-script": "^1.0.56",

@@ -8,17 +8,15 @@ const LEAD_SINGERS = [
   'Ruth',
 ];
 const BV_SINGERS = [
-  'Ama',
+  ...LEAD_SINGERS,
   'Anca',
-  'Caroline',
-  'David',
+  'Dayo',
+  'Désiré',
   'Emmy',
-  'Folu',
-  'Mel',
-  'Ruth',
+  'Omolola',
   'Sandra',
   'Yolanda',
-];
+].sort();
 const KEYBOARDISTS = ['Alan', 'Ama', 'Danny Oates', 'Maxwell', 'Yolanda'];
 const DRUMMERS = ['Chidera', 'Dayo', 'Jerron'];
 const BASSISTS = ['Alan', 'Bella', 'Jerron', 'Jonathan', 'Maxwell', 'Tim'];

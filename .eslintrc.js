@@ -6,19 +6,13 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
     tsconfigRootDir: __dirname,
-    project: ['**/tsconfig.json'],
+    project: ['tsconfig.json', 'projects/*/tsconfig.json'],
   },
   settings: {
     'import/resolver': {
       typescript: {
-        project: ['tsconfig.json'],
+        project: ['tsconfig.json', 'projects/**/tsconfig.json'],
       },
     },
   },
-  // overrides: [
-  //   {
-  //     files: ['**/*.ts'],
-  //     rules: {},
-  //   },
-  // ],
 };

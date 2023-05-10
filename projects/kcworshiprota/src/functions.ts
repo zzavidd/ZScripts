@@ -1,7 +1,9 @@
 const pr = new Intl.PluralRules('en-US', { type: 'ordinal' });
 
 function getSundaysInTerm() {
-  const monthIndices = UF_TERMS[TERM];
+  const monthIndices = UF_TERMS.get(TERM);
+  if (!monthIndices) throw new Error('No month indices.');
+
   const sundaysInTerm = monthIndices.reduce<Record<string, number[]>>(
     (monthMap, monthIndex) => {
       const date = new Date(YEAR, monthIndex);
@@ -33,7 +35,9 @@ function getSundaysInTerm() {
 }
 
 function displayMonthsForTerm(term: Term) {
-  const monthIndices = UF_TERMS[term];
+  const monthIndices = UF_TERMS.get(term);
+  if (!monthIndices) throw new Error('No month indices.');
+
   return monthIndices
     .map((monthIndex) => {
       const date = new Date(YEAR, monthIndex);
