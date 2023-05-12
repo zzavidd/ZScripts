@@ -1,10 +1,4 @@
-const TERM: Term = 3;
-const YEAR = 2023;
-
 const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
-
-const termMonths = displayMonthsForTerm(TERM);
-const SHEET_NAME = `T${TERM} ${YEAR} (${termMonths})`;
 
 const { SOLID, SOLID_MEDIUM } = SpreadsheetApp.BorderStyle;
 
@@ -14,10 +8,13 @@ let sheet: GoogleAppsScript.Spreadsheet.Sheet;
 const RANGES_TO_MERGE: GoogleAppsScript.Spreadsheet.Range[] = [];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function main(): void {
-  createSheet();
+function main(term: Term = 3, year = 2024): void {
+  const termMonths = displayMonthsForTerm(term, year);
+  const sheetName = `T${term} ${year} (${termMonths})`;
+
+  createSheet(sheetName);
   addColumns();
-  populateSheet();
+  populateSheet(term, year);
   formatSheet();
   mergeCells();
   addDataValidation();
@@ -49,17 +46,17 @@ function addColumns(): void {
   sheet.getRange(2, 13).setValue('Violin');
 }
 
-function populateSheet(): void {
+function populateSheet(term: Term, year: number): void {
   console.info(`Populating sheet...`);
 
-  const monthIndices = UF_TERMS.get(TERM);
+  const monthIndices = UF_TERMS.get(term);
   if (!monthIndices) throw new Error('No month indices.');
 
   const colours = Object.values(COLOURS)
     .sort(() => 0.5 - Math.random())
     .slice(0, monthIndices.length);
 
-  const { sundaysInTerm, numberOfSundays } = getSundaysInTerm();
+  const { sundaysInTerm, numberOfSundays } = getSundaysInTerm(term, year);
   TOTAL_NONEMPTY_ROWS += numberOfSundays;
 
   let rowIndex = 3;
@@ -145,14 +142,14 @@ function formatSheet(): void {
  * Creates the sheet, deleting it if a sheet with the name already exists.
  * @returns The sheet.
  */
-function createSheet(): void {
-  sheet = spreadsheet.getSheetByName(SHEET_NAME)!;
+function createSheet(sheetName: string): void {
+  sheet = spreadsheet.getSheetByName(sheetName)!;
   if (sheet) {
     console.info(`Sheet '${sheet.getSheetName()}' exists. Clearing...`);
     sheet.clear();
   } else {
     sheet = spreadsheet.insertSheet();
-    sheet.setName(SHEET_NAME);
+    sheet.setName(sheetName);
     console.info(`Sheet '${sheet.getSheetName()}' created.`);
   }
 }
