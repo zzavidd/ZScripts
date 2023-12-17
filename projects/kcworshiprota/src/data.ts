@@ -1,25 +1,19 @@
-const LEAD_SINGERS = [
-  'Ama',
-  'Caroline',
-  'Danny Oates',
-  'David',
-  'Folu',
-  'Mel',
-  'Ruth',
-];
+const LEAD_SINGERS = ['Ama', 'Caroline', 'David', 'Mel', 'Ruth'];
 const BV_SINGERS = [
   ...LEAD_SINGERS,
   'Anca',
+  'Chiamaka',
   'Dayo',
   'Désiré',
   'Emmy',
+  'Mairale',
   'Omolola',
   'Sandra',
   'Yolanda',
 ].sort();
-const KEYBOARDISTS = ['Alan', 'Ama', 'Danny Oates', 'Maxwell', 'Yolanda'];
+const KEYBOARDISTS = ['Alan', 'Ama', 'Désiré', 'Maxwell', 'Yolanda'];
 const DRUMMERS = ['Chidera', 'Dayo', 'Jerron'];
-const BASSISTS = ['Alan', 'Bella', 'Jerron', 'Jonathan', 'Maxwell', 'Tim'];
-const ACOUSTICS = ['Gerry', 'Jonathan', 'Tim'];
+const BASSISTS = ['Alan', 'Désiré', 'Jerron', 'Maxwell', 'Tim'];
+const ACOUSTICS = ['Gerry', 'Tim'];
 const SAXOPHONISTS = ['Mirek'];
 const VIOLINISTS = ['Bella', 'Yolanda'];

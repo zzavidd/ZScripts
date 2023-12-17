@@ -1,9 +1,9 @@
 /** A map of terms to the corresponding month indices. */
 const UF_TERMS = new Map<Term, number[]>([
-  [1, [0, 1]],
-  [2, [2, 3, 4]],
-  [3, [5, 6, 7]],
-  [4, [8, 9, 10, 11]],
+  [1, [0, 1, 2]],
+  [2, [3, 4, 5]],
+  [3, [6, 7, 8]],
+  [4, [9, 10, 11]],
 ]);
 
 /** The text style for the header. */

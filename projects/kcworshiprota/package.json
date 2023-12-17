@@ -1,4 +1,7 @@
 {
   "name": "@zscripts/kcworship-rota",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "dev": "clasp push"
+  }
 }

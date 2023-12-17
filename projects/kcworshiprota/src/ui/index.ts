@@ -21,7 +21,7 @@ function showPrompt(): void {
     }
 
     const termPrompt = ui.prompt(
-      'What term?\n\n(1) Jan-Feb\n(2) Mar-Apr-May\n(3) Jun-Jul-Aug\n(4) Sep-Oct-Nov-Dec\n',
+      'What term?\n\n(1) Jan-Feb-Mar\n(2) Apr-May-Jun\n(3) Jul-Aug-Sep\n(4) Oct-Nov-Dec\n',
     );
     if (termPrompt.getSelectedButton() !== ui.Button.OK) return;
 

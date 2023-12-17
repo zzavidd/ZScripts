@@ -1,5 +1,11 @@
 {
   "prettier": "@zzavidd/prettier-config",
+  "workspaces": [
+    "projects/*"
+  ],
+  "scripts": {
+    "login": "clasp login"
+  },
   "devDependencies": {
     "@types/google-apps-script": "^1.0.56",
     "@zzavidd/eslint-config": "^1.4.11",
