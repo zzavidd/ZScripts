@@ -4,8 +4,7 @@
     "experimentalDecorators": true,
     "isolatedModules": true,
     "lib": ["esnext"],
-    "module": "ESNext",
-    "noImplicitUseStrict": true,
+    "module": "ES2020",
     "target": "ES2019"
   },
   "exclude": ["node_modules"]
