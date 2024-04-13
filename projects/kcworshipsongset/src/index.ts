@@ -23,7 +23,7 @@ function main(year = 2024, monthIndex = 1): void {
 }
 
 function addColumns(): void {
-  console.info(`Adding columns...`);
+  console.info('Adding columns...');
   sheet.getRange(1, 1).setValue('Date');
   sheet.getRange(1, 2).setValue('Leader');
   sheet.getRange(1, 3).setValue('Songs');
@@ -35,7 +35,7 @@ function addColumns(): void {
 }
 
 function populateSheet(year: number, monthIndex: number): void {
-  console.info(`Populating sheet...`);
+  console.info('Populating sheet...');
 
   const sundaysInMonth = getSundaysInMonth(year, monthIndex);
   const colours = Object.values(COLOURS)
@@ -113,8 +113,52 @@ function formatSheet(): void {
     )
     .setHorizontalAlignment('center')
     .setVerticalAlignment('middle');
+  // Style fourth & fifth column
+  sheet
+    .getRange(2, 4, TOTAL_NONEMPTY_ROWS, 2)
+    .setTextStyle(
+      SpreadsheetApp.newTextStyle()
+        .setFontFamily('Nunito')
+        .setFontSize(12)
+        .build(),
+    )
+    .setHorizontalAlignment('center')
+    .setVerticalAlignment('middle');
+  // Style sixth column
+  sheet
+    .getRange(2, 6, TOTAL_NONEMPTY_ROWS, 1)
+    .setTextStyle(
+      SpreadsheetApp.newTextStyle()
+        .setBold(true)
+        .setFontFamily('Nunito')
+        .setFontSize(12)
+        .build(),
+    )
+    .setHorizontalAlignment('center')
+    .setVerticalAlignment('middle');
+  // Style seventh column
+  sheet
+    .getRange(2, 7, TOTAL_NONEMPTY_ROWS, 1)
+    .setTextStyle(
+      SpreadsheetApp.newTextStyle()
+        .setFontFamily('Nunito')
+        .setFontSize(12)
+        .build(),
+    )
+    .setVerticalAlignment('middle')
+    .setWrapStrategy(GoogleAppsScript.Spreadsheet.WrapStrategy.CLIP);
+  // Style eighth column
+  sheet
+    .getRange(2, 8, TOTAL_NONEMPTY_ROWS, 1)
+    .setTextStyle(
+      SpreadsheetApp.newTextStyle()
+        .setFontFamily('Nunito')
+        .setFontSize(12)
+        .build(),
+    )
+    .setVerticalAlignment('middle');
 
-  console.info(`Resizing rows and columns...`);
+  console.info('Resizing rows and columns...');
   sheet.setRowHeight(1, 45);
   sheet.setRowHeights(2, TOTAL_NONEMPTY_ROWS - 1, 28);
   sheet.setColumnWidth(1, 100);
