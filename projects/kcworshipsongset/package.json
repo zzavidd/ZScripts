@@ -2,9 +2,7 @@
   "name": "@zscripts/kcworship-songset",
   "type": "module",
   "scripts": {
-    "dev": "clasp push"
-  },
-  "devDependencies": {
-    "typescript": "^5.3.3"
+    "dev": "clasp push",
+    "clone": "clasp clone"
   }
 }

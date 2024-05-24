@@ -146,7 +146,7 @@ function formatSheet(): void {
         .build(),
     )
     .setVerticalAlignment('middle')
-    .setWrapStrategy(GoogleAppsScript.Spreadsheet.WrapStrategy.CLIP);
+    .setWrapStrategy(SpreadsheetApp.WrapStrategy.CLIP);
   // Style eighth column
   sheet
     .getRange(2, 8, TOTAL_NONEMPTY_ROWS, 1)

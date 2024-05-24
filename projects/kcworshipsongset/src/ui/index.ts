@@ -20,9 +20,7 @@ function showPrompt(): void {
       throw new Error('Please specify a valid year.');
     }
 
-    const termPrompt = ui.prompt(
-      'Which month?\n\n(1) Jan-Feb-Mar\n(2) Apr-May-Jun\n(3) Jul-Aug-Sep\n(4) Oct-Nov-Dec\n',
-    );
+    const termPrompt = ui.prompt('Which month number of the year? (1-12)');
     if (termPrompt.getSelectedButton() !== ui.Button.OK) return;
 
     try {
